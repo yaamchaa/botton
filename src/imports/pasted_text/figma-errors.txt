@@ -1,0 +1,64 @@
+
+﻿
+botton?p=f&t=emfziFG…-0&fullscreen=1:519 Running frontend commit f2c38bc36604d2751b4e552a8d9a846eb44daf7c
+vendor-core-5a58dfb5…452d49.min.js.br:54 
+ GET https://browser-intake-datadoghq.com/api/v2/rum 405 (Method Not Allowed)
+vendor-core-5a58dfb5…452d49.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+vendor-core-5a58dfb5…452d49.min.js.br:54 Loaded 44 scripts (6446002b), 0 from cache (0b)
+vendor-core-5a58dfb5…452d49.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+vendor-core-5a58dfb5…452d49.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+vendor-core-5a58dfb5…452d49.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+860-d7adb6d8c830a766.min.js.br:7 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+vendor-core-5a58dfb5…452d49.min.js.br:54 [import] git: f2c38bc36604d2751b4e552a8d9a846eb44daf7c, stamp: A56EE035D5D7EC76
+vendor-core-5a58dfb5…452d49.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+vendor-core-5a58dfb5…452d49.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-5a58dfb5…452d49.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (NVIDIA)" renderer:"ANGLE (NVIDIA, NVIDIA GeForce GTX 1660 Ti (0x00002182) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"turing" deviceDescription:"" webGPUDevice:"" webGPUVendor:"nvidia" bindings:"emdawnwebgpu"
+vendor-core-5a58dfb5…452d49.min.js.br:54 [Fullscreen] Ready in 3028.2ms
+860-d7adb6d8c830a766.min.js.br:7 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+vendor-core-5a58dfb5…452d49.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference light
+vendor-core-5a58dfb5…452d49.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/d91JmeOl94dSr7oyWz2kh0?role=editor&trac…420633285519547774&client_release=f2c38bc…
+vendor-core-5a58dfb5…452d49.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-5a58dfb5…452d49.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference light
+vendor-core-5a58dfb5…452d49.min.js.br:54 [Local fonts] using agent
+4
+/make/d91JmeOl94dSr7…eB-0&fullscreen=1:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+vendor-core-5a58dfb5…452d49.min.js.br:54 [devtools] Initialized LS
+vendor-core-5a58dfb5…452d49.min.js.br:54 [Fullscreen] loadtime=12.00s maxmem=65060192
+vendor-core-5a58dfb5…452d49.min.js.br:63 
+ GET https://www.figma.com/api/plans/319f67f6-4be0-4655-ae66-fb403e58b216/npm_private_registry/scopes 404 (Not Found)
+vendor-core-5a58dfb5…452d49.min.js.br:63 
+ GET https://www.figma.com/api/make/d91JmeOl94dSr7oyWz2kh0/cached_preview_urls?source_code_hash=0568ee3… 404 (Not Found)
+vendor-core-5a58dfb5…452d49.min.js.br:54 [devtools] Initialized LS
+__figma__entrypoint__.ts:3 
+ GET https://app-pfgmkqtktckjo4kcp3rcljeba3rrt3nussk76w7jucdxnxomgp3p.makeproxy-c.figma.site/src/app/App.tsx net::ERR_ABORTED 500 (Internal Server Error)
+code_components_prev…96db0a.min.js.br:17 [vite] Internal Server Error
+Failed to resolve import "/src/imports/1랜딩페이지-1/1랜딩페이지-13-583.tsx" from "src/app/App.tsx". Does the file exist?
+    at TransformPluginContext._formatLog (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42499:41)
+    at TransformPluginContext.error (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42496:16)
+    at normalizeUrl (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40475:23)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40594:37
+    at async Promise.all (index 6)
+    at TransformPluginContext.transform (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40521:7)
+    at EnvironmentPluginContainer.transform (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42294:18)
+    at loadAndTransform (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:35735:27)
+code_components_prev…96db0a.min.js.br:17 9:43:07 AM [vite] Internal server error: Failed to resolve import "/src/imports/1랜딩페이지-1/1랜딩페이지-13-583.tsx" from "src/app/App.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: src/app/App.tsx:5:24
+  18 |  import { BrowserRouter, Routes, Route, Navigate } from "react-router";
+  19 |  import CMSPage from "./components/CMSPage";
+  20 |  import LandingPage from "/src/imports/1랜딩페이지-1/1랜딩페이지-13-583.tsx";
+     |                           ^
+  21 |  import MenuPage from "/src/imports/3-1/3-13-1454.tsx";
+  22 |  import AboutPage from "/src/imports/31/31.tsx";
+      at TransformPluginContext._formatLog (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42499:41)
+      at TransformPluginContext.error (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42496:16)
+      at normalizeUrl (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40475:23)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40594:37
+      at async Promise.all (index 6)
+      at TransformPluginContext.transform (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40521:7)
+      at EnvironmentPluginContainer.transform (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42294:18)
+      at loadAndTransform (node_modules/.pnpm/vite@6.3.5_jiti@2.6.0_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:35735:27)
+2
+/make/d91JmeOl94dSr7…eB-0&fullscreen=1:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
