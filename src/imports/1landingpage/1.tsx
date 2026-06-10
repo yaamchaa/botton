@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import svgPaths from "./svg-r2t5s3t3sg";
 import { Link, useNavigate } from 'react-router';
 import ScrollToTop from "./ScrollToTop";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '../app/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '../../app/components/ui/sheet';
 import { Menu as MenuIcon } from 'lucide-react';
 import imgFrame1 from "./10fe44ed278250004c1f8a30e1633190126e41f3.png";
 import img13 from "./9f51a579ca99d5ebe084e659685a030e842a6e94.png";
