@@ -341,60 +341,70 @@ export default function Component() {
   const submissionCount = useMemo(() => submissions.length, [submissions]);
 
   const fetchSubmissions = async () => {
-  const { data, error } = await supabase
-    .from("contact_submissions")
-    .select("*")
-    .order("created_at", { ascending: false });
+    const { data, error } = await supabase
+      .from("contact_submissions")
+      .select("*")
+      .order("created_at", { ascending: false });
 
-  console.log("fetch submissions data:", data);
-  console.log("fetch submissions error:", error);
+    console.log("fetch submissions data:", data);
+    console.log("fetch submissions error:", error);
 
-  if (error) {
-    alert(`신청 내역 조회 오류: ${error.message}`);
-    return;
-  }
+    if (error) {
+      alert(`신청 내역 조회 오류: ${error.message}`);
+      return;
+    }
 
-  setSubmissions(data ?? []);
-};
-
-  const handleSubmit = async () => {
-  if (!name.trim() || !email.trim() || !phone.trim()) {
-    setShowRequiredAlert(true);
-    return;
-  }
-
-  const payload = {
-    name: name.trim(),
-    email: email.trim(),
-    phone: phone.trim(),
-    message: message.trim(),
+    setSubmissions(data ?? []);
   };
 
-  const { data, error } = await supabase
-    .from("contact_submissions")
-    .insert([payload])
-    .select();
+  const handleSubmit = async () => {
+    if (!name.trim() || !email.trim() || !phone.trim()) {
+      setShowRequiredAlert(true);
+      return;
+    }
 
-  console.log("insert result data:", data);
-  console.log("insert result error:", error);
+    const payload = {
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
+      message: message.trim(),
+    };
 
-  if (error) {
-    alert(`신청 저장 오류: ${error.message}`);
-    return;
-  }
+    const { data, error } = await supabase
+      .from("contact_submissions")
+      .insert([payload])
+      .select();
 
-  if (!data || data.length === 0) {
-    alert("신청은 진행되었지만 저장 결과를 확인하지 못했습니다.");
-    return;
-  }
+    console.log("insert result data:", data);
+    console.log("insert result error:", error);
 
-  setName("");
-  setEmail("");
-  setPhone("");
-  setMessage("");
+    if (error) {
+      alert(`신청 저장 오류: ${error.message}`);
+      return;
+    }
 
-  alert("신청이 정상적으로 접수되었습니다.");
-};
+    if (!data || data.length === 0) {
+      alert("신청은 진행되었지만 저장 결과를 확인하지 못했습니다.");
+      return;
+    }
+
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
+
+    alert("신청이 정상적으로 접수되었습니다.");
+  };
+
+  const handleOpenAdmin = async () => {
+    const password = window.prompt("관리자 비밀번호를 입력하세요.");
+    if (password === "19801106") {
+      await fetchSubmissions();
+      setShowAdmin(true);
+    } else if (password !== null) {
+      alert("비밀번호가 올바르지 않습니다.");
+    }
+  };
 
   return (
     <div className="bg-white min-h-screen w-full relative">
@@ -486,7 +496,7 @@ export default function Component() {
                         {index + 1}. {item.name}
                       </div>
                       <div className="text-[12px] text-[#888] whitespace-nowrap">
-                         {new Date(item.created_at).toLocaleString("ko-KR")}
+                        {new Date(item.created_at).toLocaleString("ko-KR")}
                       </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[14px] text-[#333]">
