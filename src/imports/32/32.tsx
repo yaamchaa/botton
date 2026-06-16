@@ -61,10 +61,12 @@ function AutoResizeTextarea({
   value,
   onChange,
   placeholder,
+  maxLength = 500,
 }: {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  maxLength?: number;
 }) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -78,7 +80,13 @@ function AutoResizeTextarea({
   return (
     <div className="relative w-full">
       <div className="content-stretch flex flex-col gap-[18px] items-start w-full">
-        <LabelText text="Message" />
+        <div className="flex items-center justify-between w-full">
+          <LabelText text="Message" />
+          <div className="text-[12px] text-[#9a9a9a] font-['Gmarket Sans',sans-serif] font-light tracking-[0.5px]">
+            {value.length}/{maxLength}
+          </div>
+        </div>
+
         <div className="relative w-full">
           <textarea
             ref={textareaRef}
@@ -86,10 +94,12 @@ function AutoResizeTextarea({
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
             rows={1}
+            maxLength={maxLength}
             className="block w-full min-h-[44px] h-[44px] overflow-hidden resize-none bg-transparent outline-none border-none text-[19px] text-black placeholder:text-[#b7b7b7] font-['Gmarket Sans',sans-serif] font-light tracking-[1px]"
             style={{ lineHeight: "44px" }}
           />
         </div>
+
         <DividerLine />
       </div>
     </div>
@@ -368,7 +378,7 @@ export default function Component() {
       name: name.trim(),
       email: email.trim(),
       phone: phone.trim(),
-      message: message.trim(),
+      message: message.trim().slice(0, 500),
     };
 
     const { data, error } = await supabase
@@ -462,10 +472,11 @@ export default function Component() {
                   type="tel"
                 />
                 <AutoResizeTextarea
-                  value={message}
-                  onChange={setMessage}
-                  placeholder="신청 내용을 입력해 주세요"
-                />
+  value={message}
+  onChange={(value) => setMessage(value.slice(0, 500))}
+  placeholder="신청 내용을 입력해 주세요"
+  maxLength={500}
+/>
               </div>
 
               <div className="flex justify-end pt-[10px]">
