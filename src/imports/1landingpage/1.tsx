@@ -2,8 +2,6 @@ import { useState, useRef } from 'react';
 import svgPaths from "./svg-r2t5s3t3sg";
 import { Link, useNavigate } from 'react-router';
 import ScrollToTop from "./ScrollToTop";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '../../app/components/ui/sheet';
-import { Menu as MenuIcon } from 'lucide-react';
 import imgFrame1 from "./10fe44ed278250004c1f8a30e1633190126e41f3.png";
 import img13 from "./9f51a579ca99d5ebe084e659685a030e842a6e94.png";
 import img17 from "./d1149bfcaa4a1cd41cba5afffe20298cd41aedaf.png";
@@ -34,13 +32,13 @@ function BobSink() {
 
 function Frame() {
   return (
-    <div className="md:absolute relative content-stretch flex h-auto md:h-[675px] items-center justify-center md:left-[-2px] overflow-clip px-4 md:px-[455px] py-12 md:py-[109px] md:top-[96px] w-full md:w-[1920px]">
-      <img alt="" className="md:absolute relative inset-0 max-w-none object-contain pointer-events-none w-full h-auto md:size-full" src={imgFrame1} />
-      <div className="md:-translate-y-1/2 md:absolute relative flex flex-col font-['Noto_Sans:Display_Regular',sans-serif] font-normal justify-center leading-normal md:leading-[0] md:left-[1177px] text-[#b7b7b7] text-sm md:text-[15px] md:top-[586px] mt-4 md:mt-0" style={{ fontVariationSettings: "'CTGR' 100, 'wdth' 100" }}>
-        <p className="mb-0">ROCK</p>
+    <div className="absolute content-stretch flex h-[675px] items-center justify-center left-[-2px] overflow-clip px-[455px] py-[109px] top-[96px] w-[1920px]">
+      <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgFrame1} />
+      <div className="-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-['Noto_Sans:Display_Regular',sans-serif] font-normal justify-center leading-[0] left-[1177px] text-[#b7b7b7] text-[15px] top-[586px] whitespace-nowrap" style={{ fontVariationSettings: "'CTGR' 100, 'wdth' 100" }}>
+        <p className="leading-[normal] mb-0">ROCK</p>
         <p>
-          <span>{`Modular kitchens from `}</span>
-          <span>steininger.designers</span>
+          <span className="leading-[normal]">{`Modular kitchens from `}</span>
+          <span className="leading-[normal]">steininger.designers</span>
         </p>
       </div>
     </div>
@@ -51,7 +49,7 @@ function Frame94({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement> }) 
   const navigate = useNavigate();
 
   return (
-    <div ref={scrollRef} className="content-stretch flex gap-4 md:gap-[27px] items-center overflow-x-auto overflow-y-clip relative shrink-0 w-full md:w-[1290px]" style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+    <div ref={scrollRef} className="content-stretch flex gap-[27px] items-center overflow-x-auto overflow-y-clip relative shrink-0 w-[1290px]" style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
       <style dangerouslySetInnerHTML={{__html: `
         div::-webkit-scrollbar {
           display: none;
@@ -114,9 +112,9 @@ function Component2() {
   };
 
   return (
-    <div className="relative content-stretch flex flex-col h-auto md:h-[630px] items-center justify-center md:left-[-1px] md:pr-[90px] py-12 md:pt-[230px] w-full md:w-[1920px]" data-name="홈 1페이지">
+    <div className="relative content-stretch flex flex-col h-[630px] items-center justify-center left-[-1px] pr-[90px] pt-[230px] w-[1920px]" data-name="홈 1페이지">
       <Frame94 scrollRef={scrollRef} />
-      <div className="md:absolute hidden h-[47px] left-[1201px] opacity-25 top-[240px] w-[88px]" data-name="이동 좌우">
+      <div className="absolute h-[47px] left-[1201px] opacity-25 top-[240px] w-[88px]" data-name="이동 좌우">
         <div className="absolute backdrop-blur-[0.5px] bg-[rgba(196,196,196,0.75)] inset-0 rounded-[500px]" />
         <div
           className="absolute bg-[#3c3c3c] bottom-0 left-1/2 opacity-20 right-0 rounded-br-[500px] rounded-tr-[500px] top-0 cursor-pointer 
@@ -2423,33 +2421,8 @@ function Frame64() {
 
 function Component95() {
   return (
-    <div className="relative bg-white h-auto md:h-[550px] left-0 w-full md:w-[1920px] py-12 md:py-0" data-name="푸터 바탕">
-      <div className="md:block hidden"><Frame64 /></div>
-      <div className="md:hidden flex flex-col items-center px-4 gap-8">
-        <div className="font-['Gmarket Sans',sans-serif] font-light text-[25px]">
-          <span>bo</span>
-          <span className="font-bold">tton.</span>
-          <span>co</span>
-        </div>
-        <div className="flex flex-wrap justify-center gap-4 text-[#b7b7b7] text-sm">
-          <span>FAQ</span>
-          <span>이용약관</span>
-          <span>고객센터</span>
-          <span>IM서비스</span>
-        </div>
-        <div className="text-[#b7b7b7] text-xs text-center space-y-2">
-          <p>botton A&S Development 대표 : 오 미연</p>
-          <p>사업자등록번호 685 07 02278</p>
-          <p>본사 : 경기도 하남시 미사강변서로22 에코큐브 1016호</p>
-          <p>통신판매업신고증 : 제2024-경기하남-1550호</p>
-        </div>
-        <div className="flex gap-4">
-          <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">N</div>
-          <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">K</div>
-          <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">I</div>
-          <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">P</div>
-        </div>
-      </div>
+    <div className="relative bg-white h-[550px] left-0 w-[1920px]" data-name="푸터 바탕">
+      <Frame64 />
     </div>
   );
 }
@@ -2496,52 +2469,24 @@ function Frame92() {
   );
 }
 
-function MobileNav() {
-  const linkClass = "no-underline cursor-pointer hover:opacity-80 transition-opacity font-['Gmarket Sans',sans-serif] font-light text-[#3b3b3b] text-[24px] tracking-[2px] py-4 border-b border-gray-100 w-full text-left";
-  
-  return (
-    <div className="flex flex-col items-start gap-4 pt-12 px-4">
-      <Link to="/about" className={linkClass}>About</Link>
-      <Link to="/projects" className={linkClass}>Projects</Link>
-      <Link to="/interior-kitchen" className={linkClass}>Price</Link>
-      <Link to="/contact" className={linkClass}>Contacts</Link>
-    </div>
-  );
-}
-
 function Frame107() {
   return (
-    <div className="fixed bg-white/75 backdrop-blur-md content-stretch flex items-center justify-between left-0 px-4 md:px-[360px] py-[20px] top-0 w-full z-50">
-      {/* Mobile Hamburger Menu */}
-      <div className="md:hidden">
-        <Sheet>
-          <SheetTrigger asChild>
-            <button className="p-2 hover:bg-gray-100 rounded-md transition-colors">
-              <MenuIcon size={24} />
-            </button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[300px] p-0">
-            <SheetTitle className="sr-only">Menu</SheetTitle>
-            <MobileNav />
-          </SheetContent>
-        </Sheet>
-      </div>
-
+    <div className="fixed bg-white/75 backdrop-blur-md content-stretch flex items-center justify-between left-0 px-[360px] py-[20px] top-0 w-full z-50">
       <Link
         to="/page2"
-        className="h-[38px] relative shrink-0 w-auto md:w-[133px] cursor-pointer no-underline hover:opacity-80 transition-opacity"
+        className="h-[38px] relative shrink-0 w-[133px] cursor-pointer no-underline hover:opacity-80 transition-opacity"
         data-name="logo"
       >
-        <div className="h-[38px] flex items-center">
-          <div className="font-['Gmarket Sans',sans-serif] font-light text-[20px] md:text-[25px]">
-            <span>bo</span>
-            <span className="font-bold">tton.</span>
-            <span>co</span>
-          </div>
+        <div className="absolute inset-0 h-[38px] pointer-events-none">
+  <div className="font-sans text-[25px] font-light">
+    <span>bo</span>
+    <span className="font-bold">tton.</span>
+    <span>co</span>
+  </div>
+
         </div>
       </Link>
-
-      <Link to="/website" className="backdrop-blur-[5px] h-[40px] md:h-[47px] relative shrink-0 w-[100px] md:w-[135px] cursor-pointer rounded-full hover:opacity-60 transition-all duration-800" 
+      <Link to="/website" className="backdrop-blur-[5px] h-[47px] relative shrink-0 w-[135px] cursor-pointer rounded-full hover:opacity-60 transition-all duration-800" 
                       data-name="웹사이트 이동버튼">
         <Frame91 />
         <Frame92 />
@@ -2554,7 +2499,7 @@ export default function Component1() {
   const [selectedProject, setSelectedProject] = useState(0);
 
   return (
-    <div className="bg-white flex flex-col items-center min-h-screen relative w-full md:w-[1920px] mx-auto overflow-x-hidden" data-name="1.랜딩페이지">
+    <div className="bg-white flex flex-col items-center min-h-screen relative w-[1920px] mx-auto overflow-x-hidden" data-name="1.랜딩페이지">
       <style dangerouslySetInnerHTML={{__html: `
         html, body {
           overflow-x: hidden;
@@ -2570,11 +2515,6 @@ export default function Component1() {
         div::-webkit-scrollbar {
           display: none;
         }
-        @media (max-width: 767px) {
-          .mobile-hide { display: none !important; }
-          .mobile-full { width: 100% !important; height: auto !important; position: relative !important; left: 0 !important; top: 0 !important; }
-          .mobile-padding { padding-left: 1rem !important; padding-right: 1rem !important; }
-        }
       `}} />
       
       {/* Header - Fixed/Absolute at top */}
@@ -2583,39 +2523,40 @@ export default function Component1() {
       </div>
 
       {/* Main Content Sections - Positioned Relatively to stack correctly */}
-      <div className="relative w-full h-auto md:h-[736px] mobile-full">
-        <div className="md:block hidden"><BobSink /></div>
+      <div className="relative w-full h-[736px]">
+        <BobSink />
         <Frame />
       </div>
 
-      <div className="relative w-full h-[116px] md:block hidden">
+      <div className="relative w-full h-[116px]">
          <div className="absolute flex items-center justify-center left-[934px] size-[50px] top-0">
           <div className="-rotate-90 flex-none">
             <div
-              className="relative rounded-[100px] size-[50px] cursor-pointer"
-              data-name="이동 아래"
-              onClick={() => {
-                document.getElementById("Component2")?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }}
-            >
-              <div
-                className="absolute bg-[#ececec] left-0 rounded-[500px] size-[50px] top-[0.5px] hover:bg-gray-100 transition-all duration-800"
-                data-name="스타일 공간 버튼 우2"
-              />
-              <div className="absolute h-0 left-[15px] top-[26px] w-[19px]">
-                <div className="absolute inset-[-3.68px_-2.63%]">
-                  <svg
-                    className="block size-full"
-                    fill="none"
-                    preserveAspectRatio="none"
-                    viewBox="0 0 20 7.36396"
-                  >
-                    <path d={svgPaths.p94a0200} fill="var(--stroke-0, black)" id="Line 5" />
-                  </svg>
-                </div>
+  className="relative rounded-[100px] size-[50px] cursor-pointer"
+  data-name="이동 아래"
+  onClick={() => {
+    document.getElementById("Component2")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+>
+
+  <div
+    className="absolute bg-[#ececec] left-0 rounded-[500px] size-[50px] top-[0.5px] hover:bg-gray-100 transition-all duration-800"
+    data-name="스타일 공간 버튼 우2"
+  />
+  <div className="absolute h-0 left-[15px] top-[26px] w-[19px]">
+    <div className="absolute inset-[-3.68px_-2.63%]">
+      <svg
+        className="block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 20 7.36396"
+      >
+        <path d={svgPaths.p94a0200} fill="var(--stroke-0, black)" id="Line 5" />
+      </svg>
+    </div>
               </div>
             </div>
           </div>
@@ -2623,24 +2564,24 @@ export default function Component1() {
       </div>
     
 
-      <div id="Component2" className="relative w-full h-auto md:h-[630px] mobile-full">
+      <div className="relative w-full h-[630px]">
         <Component2 />
       </div>
 
-      <div className="relative w-full h-auto md:h-[777px] mobile-full">
+      <div className="relative w-full h-[777px]">
         <Component3 selectedProject={selectedProject} setSelectedProject={setSelectedProject} />
       </div>
 
-      <div className="relative w-full h-auto md:h-[110px] mobile-full">
+      <div className="relative w-full h-[110px]">
         <Component82 />
       </div>
 
-      <div className="relative w-full h-auto md:h-[730px] mobile-full">
+      <div className="relative w-full h-[730px]">
         <Frame106 />
       </div>
 
       {/* Footer - Relative at the end of the flex column */}
-      <div className="relative w-full h-auto md:h-[550px] mobile-full">
+      <div className="relative w-full h-[550px]">
         <Component95 />
       </div>
     </div>
