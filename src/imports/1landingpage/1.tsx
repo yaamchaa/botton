@@ -45,11 +45,19 @@ function Frame() {
   );
 }
 
-function Frame94({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement> }) {
+function Frame94({
+  scrollRef,
+}: {
+  scrollRef: React.MutableRefObject<HTMLDivElement | null>;
+}) {
   const navigate = useNavigate();
 
   return (
-    <div ref={scrollRef} className="content-stretch flex gap-[27px] items-center overflow-x-auto overflow-y-clip relative shrink-0 w-[1290px]" style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+    <div
+      ref={scrollRef}
+      className="content-stretch flex gap-[27px] items-center overflow-x-auto overflow-y-clip relative shrink-0 w-[1290px]"
+      style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+    >
       <style dangerouslySetInnerHTML={{__html: `
         div::-webkit-scrollbar {
           display: none;
