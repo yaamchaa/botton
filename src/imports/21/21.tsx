@@ -36,7 +36,7 @@ function BobSink() {
 
 function Frame11() {
   return (
-    <div className="absolute content-stretch flex items-center justify-center left-[528px] top-[250px] cursor-default">
+    <div className="absolute content-stretch flex items-center justify-center left-[528px] top-[309px] cursor-default">
       <div className="content-stretch flex items-center justify-center relative shrink-0 w-[865px]">
         <div className="[word-break:break-word] flex flex-[1_0_0] flex-col font-['Gmarket Sans',sans-serif] font-light 
                           justify-center leading-[0] min-w-px not-italic relative text-[#c1c1c1] text-[30px] tracking-[3px]">
