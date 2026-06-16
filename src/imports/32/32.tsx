@@ -2,7 +2,7 @@ import svgPaths from "./svg-wbzl9967en";
 import { Link, useNavigate } from "react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ScrollToTop from "./ScrollToTop";
-import { supabase } from '../../utils/supabase/client';
+import { supabase } from '../../../utils/supabase/client';
 
 function LabelText({ text }: { text: string }) {
   return (
@@ -361,37 +361,31 @@ export default function Component() {
     return;
   }
 
-  const { error } = await supabase.from("contact_submissions").insert([
-    {
-      name: name.trim(),
-      email: email.trim(),
-      phone: phone.trim(),
-      message: message.trim(),
-    },
-  ]);
+  const payload = {
+    name: name.trim(),
+    email: email.trim(),
+    phone: phone.trim(),
+    message: message.trim(),
+  };
+
+  const { data, error } = await supabase
+    .from("contact_submissions")
+    .insert([payload])
+    .select();
 
   if (error) {
     console.error("신청 저장 오류:", error);
-    alert("신청 저장 중 오류가 발생했습니다.");
+    alert(`신청 저장 오류: ${error.message}`);
     return;
   }
+
+  console.log("insert success:", data);
+  alert("신청이 정상적으로 접수되었습니다.");
 
   setName("");
   setEmail("");
   setPhone("");
   setMessage("");
-
-  alert("신청이 정상적으로 접수되었습니다.");
-};
-
-  const handleOpenAdmin = async () => {
-  const password = window.prompt("관리자 비밀번호를 입력하세요.");
-  if (password === "19801106") {
-    await fetchSubmissions();
-    setShowAdmin(true);
-  } else if (password !== null) {
-    alert("비밀번호가 올바르지 않습니다.");
-  }
 };
 
   return (
