@@ -2,6 +2,7 @@ import svgPaths from "./svg-wbzl9967en";
 import { Link, useNavigate } from "react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ScrollToTop from "./ScrollToTop";
+import { supabase } from '../../utils/supabase/client';
 
 function LabelText({ text }: { text: string }) {
   return (
@@ -325,7 +326,7 @@ type Submission = {
   email: string;
   phone: string;
   message: string;
-  createdAt: string;
+  created_at: string;
 };
 
 export default function Component() {
@@ -339,37 +340,59 @@ export default function Component() {
 
   const submissionCount = useMemo(() => submissions.length, [submissions]);
 
-  const handleSubmit = () => {
-    if (!name.trim() || !email.trim() || !phone.trim()) {
-      setShowRequiredAlert(true);
-      return;
-    }
+  const fetchSubmissions = async () => {
+  const { data, error } = await supabase
+    .from("contact_submissions")
+    .select("*")
+    .order("created_at", { ascending: false });
 
-    const nextItem: Submission = {
-      id: Date.now(),
+  if (error) {
+    console.error("신청 내역 조회 오류:", error);
+    alert("신청 내역을 불러오지 못했습니다.");
+    return;
+  }
+
+  setSubmissions(data ?? []);
+};
+
+  const handleSubmit = async () => {
+  if (!name.trim() || !email.trim() || !phone.trim()) {
+    setShowRequiredAlert(true);
+    return;
+  }
+
+  const { error } = await supabase.from("contact_submissions").insert([
+    {
       name: name.trim(),
       email: email.trim(),
       phone: phone.trim(),
       message: message.trim(),
-      createdAt: new Date().toLocaleString("ko-KR"),
-    };
+    },
+  ]);
 
-    setSubmissions((prev) => [nextItem, ...prev]);
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
-    alert("신청이 정상적으로 접수되었습니다.");
-  };
+  if (error) {
+    console.error("신청 저장 오류:", error);
+    alert("신청 저장 중 오류가 발생했습니다.");
+    return;
+  }
 
-  const handleOpenAdmin = () => {
-    const password = window.prompt("관리자 비밀번호를 입력하세요.");
-    if (password === "19801106") {
-      setShowAdmin(true);
-    } else if (password !== null) {
-      alert("비밀번호가 올바르지 않습니다.");
-    }
-  };
+  setName("");
+  setEmail("");
+  setPhone("");
+  setMessage("");
+
+  alert("신청이 정상적으로 접수되었습니다.");
+};
+
+  const handleOpenAdmin = async () => {
+  const password = window.prompt("관리자 비밀번호를 입력하세요.");
+  if (password === "19801106") {
+    await fetchSubmissions();
+    setShowAdmin(true);
+  } else if (password !== null) {
+    alert("비밀번호가 올바르지 않습니다.");
+  }
+};
 
   return (
     <div className="bg-white min-h-screen w-full relative">
@@ -460,7 +483,9 @@ export default function Component() {
                       <div className="text-[16px] font-medium text-black">
                         {index + 1}. {item.name}
                       </div>
-                      <div className="text-[12px] text-[#888] whitespace-nowrap">{item.createdAt}</div>
+                      <div className="text-[12px] text-[#888] whitespace-nowrap">
+                         {new Date(item.created_at).toLocaleString("ko-KR")}
+                      </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[14px] text-[#333]">
                       <div><strong>이름</strong> : {item.name}</div>
