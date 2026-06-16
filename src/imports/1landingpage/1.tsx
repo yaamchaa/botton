@@ -2572,7 +2572,7 @@ export default function Component1() {
       </div>
     
 
-      <div className="relative w-full h-[630px]">
+      <div id="Component2" className="relative w-full h-[630px]">
         <Component2 />
       </div>
 
