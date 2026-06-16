@@ -9,14 +9,6 @@ function ViewportScaler() {
     if (!root) return;
 
     const update = () => {
-      if (window.innerWidth < 768) {
-        root.style.width = '100%';
-        root.style.zoom = '1';
-        document.documentElement.style.overflowX = 'hidden';
-        document.body.style.overflowX = 'hidden';
-        document.body.style.margin = '0';
-        return;
-      }
       const scale = window.innerWidth / DESIGN_WIDTH;
       root.style.width = `${DESIGN_WIDTH}px`;
       root.style.zoom = String(scale);
@@ -58,6 +50,12 @@ import WebsitePage from '/src/imports/11website/11website';
 import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <ViewportScaler />
