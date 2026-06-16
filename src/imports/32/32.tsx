@@ -337,6 +337,7 @@ export default function Component() {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [showAdmin, setShowAdmin] = useState(false);
   const [showRequiredAlert, setShowRequiredAlert] = useState(false);
+  const [deletingId, setDeletingId] = useState<number | null>(null);
 
   const submissionCount = useMemo(() => submissions.length, [submissions]);
 
@@ -404,6 +405,28 @@ export default function Component() {
     } else if (password !== null) {
       alert("비밀번호가 올바르지 않습니다.");
     }
+  };
+
+  const handleDeleteSubmission = async (id: number) => {
+    const confirmed = window.confirm("이 신청 내역을 삭제하시겠습니까?");
+    if (!confirmed) return;
+
+    setDeletingId(id);
+
+    const { error } = await supabase
+      .from("contact_submissions")
+      .delete()
+      .eq("id", id);
+
+    setDeletingId(null);
+
+    if (error) {
+      alert(`삭제 오류: ${error.message}`);
+      return;
+    }
+
+    await fetchSubmissions();
+    alert("신청 내역이 삭제되었습니다.");
   };
 
   return (
@@ -490,20 +513,46 @@ export default function Component() {
             ) : (
               <div className="space-y-4">
                 {submissions.map((item, index) => (
-                  <div key={item.id} className="border border-[#e8e8e8] rounded-[18px] p-5">
-                    <div className="flex items-center justify-between mb-3 gap-4">
-                      <div className="text-[16px] font-medium text-black">
-                        {index + 1}. {item.name}
+                  <div
+                    key={item.id}
+                    className="border border-[#e8e8e8] rounded-[18px] p-5"
+                  >
+                    <div className="flex items-start justify-between gap-4 mb-4">
+                      <div>
+                        <div className="text-[16px] font-medium text-black">
+                          {index + 1}. {item.name}
+                        </div>
+                        <div className="text-[12px] text-[#888] whitespace-nowrap mt-1">
+                          {new Date(item.created_at).toLocaleString("ko-KR")}
+                        </div>
                       </div>
-                      <div className="text-[12px] text-[#888] whitespace-nowrap">
-                        {new Date(item.created_at).toLocaleString("ko-KR")}
-                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteSubmission(item.id)}
+                        disabled={deletingId === item.id}
+                        className="min-w-[88px] h-[36px] px-4 rounded-full border border-[#d9d9d9] text-[13px] text-[#444] hover:bg-[#f5f5f5] disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {deletingId === item.id ? "삭제 중..." : "삭제"}
+                      </button>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[14px] text-[#333]">
-                      <div><strong>이름</strong> : {item.name}</div>
-                      <div><strong>이메일</strong> : {item.email}</div>
-                      <div><strong>전화번호</strong> : {item.phone}</div>
-                      <div className="md:col-span-2 break-words"><strong>메시지</strong> : {item.message || "-"}</div>
+
+                    <div className="flex flex-col gap-3 text-[14px] text-[#333]">
+                      <div className="flex flex-wrap gap-x-8 gap-y-2">
+                        <div className="whitespace-nowrap">
+                          <strong>이름</strong> : {item.name}
+                        </div>
+                        <div className="whitespace-nowrap">
+                          <strong>이메일</strong> : {item.email}
+                        </div>
+                        <div className="whitespace-nowrap">
+                          <strong>전화번호</strong> : {item.phone}
+                        </div>
+                      </div>
+
+                      <div className="rounded-[14px] bg-[#fafafa] px-4 py-3 break-words leading-[1.7]">
+                        <strong>메시지</strong> : {item.message || "-"}
+                      </div>
                     </div>
                   </div>
                 ))}
