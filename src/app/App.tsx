@@ -55,10 +55,11 @@ export default function App() {
       window.history.scrollRestoration = 'manual';
     }
   }, []);
+
   return (
     <BrowserRouter>
-  {/* <ViewportScaler /> */}
-  <ScrollToTop />
+      <ViewportScaler />
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<FigmaLandingPage />} />
