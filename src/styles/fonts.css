@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Gmarket Sans';
-  src: url('/fonts/GmarketSansLight.woff2') format('woff2');
+  src: url('/fonts/GmarketSansLight.woff2') format('woff2'),
+       url('/fonts/GmarketSansLight.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -8,7 +9,8 @@
 
 @font-face {
   font-family: 'Gmarket Sans';
-  src: url('/fonts/GmarketSansMedium.woff2') format('woff2');
+  src: url('/fonts/GmarketSansMedium.woff2') format('woff2'),
+       url('/fonts/GmarketSansLight.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +18,8 @@
 
 @font-face {
   font-family: 'Gmarket Sans';
-  src: url('/fonts/GmarketSansBold.woff2') format('woff2');
+  src: url('/fonts/GmarketSansBold.woff2') format('woff2'),
+       url('/fonts/GmarketSansLight.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
