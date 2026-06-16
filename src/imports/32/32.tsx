@@ -346,9 +346,11 @@ export default function Component() {
     .select("*")
     .order("created_at", { ascending: false });
 
+  console.log("fetch submissions data:", data);
+  console.log("fetch submissions error:", error);
+
   if (error) {
-    console.error("신청 내역 조회 오류:", error);
-    alert("신청 내역을 불러오지 못했습니다.");
+    alert(`신청 내역 조회 오류: ${error.message}`);
     return;
   }
 
@@ -373,19 +375,25 @@ export default function Component() {
     .insert([payload])
     .select();
 
+  console.log("insert result data:", data);
+  console.log("insert result error:", error);
+
   if (error) {
-    console.error("신청 저장 오류:", error);
     alert(`신청 저장 오류: ${error.message}`);
     return;
   }
 
-  console.log("insert success:", data);
-  alert("신청이 정상적으로 접수되었습니다.");
+  if (!data || data.length === 0) {
+    alert("신청은 진행되었지만 저장 결과를 확인하지 못했습니다.");
+    return;
+  }
 
   setName("");
   setEmail("");
   setPhone("");
   setMessage("");
+
+  alert("신청이 정상적으로 접수되었습니다.");
 };
 
   return (
